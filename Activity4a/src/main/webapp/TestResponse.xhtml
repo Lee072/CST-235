@@ -1,0 +1,59 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transition//EN" 
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd" >
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:ui="http://java.sun.com/jsf/facelets"
+	  xmlns:f="http://java.sun.com/jsf/core"
+	  xmlns:h="http://java.sun.com/jsf/html">
+	  
+<head>
+	<title>Test Response</title>
+	<link rel="stylesheet" href="css/style.css"></link>
+</head>
+
+<body>
+<ui:composition template = "layouts/commonLayout.xhtml">
+
+		
+		<ui:define name="content">
+				<h2>
+					<h:button id="button-1" class="button" onClick = "location.href = 'TestForm.xhtml'" value = "Back"></h:button>
+					<br/> <br/>
+					<b>Hello: #{User.firstName}  #{User.lastName}</b>
+					<br/> <br/>
+					<b>Your orders are: </b>
+					<br/> <br/>
+
+				<h:dataTable value="#{formController.service.orders}" var="orders">
+					
+					<h:column>
+					<f:facet name="header">Order Number:</f:facet>
+					#{Order.ordersList}
+					</h:column>
+					
+					<h:column>
+					<f:facet name="header">Product Name:</f:facet>
+					#{Order.productName}
+					</h:column>
+					
+					<h:column>
+					<f:facet name="header">Price:</f:facet>
+					#{Order.price}
+					</h:column>
+					
+					<h:column>
+					<f:facet name="header">Quantity:</f:facet>
+					#{Order.quantity}
+					</h:column>
+					
+					</h:dataTable>	
+												
+				</h2>
+			</ui:define>
+			
+
+		</ui:composition>
+
+
+</body>
+
+</html>
